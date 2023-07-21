@@ -1,19 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+type Status = 'Stopped' | 'Playing' | 'Paused'
+type StateType = {
+    volume: number // in percents
+    trackUrl: string // 'https://blabla.com/track01.mp3',
+    currentPlayPosition: number // milliseconds,
+    status: Status
+}
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export const playerReducer = (state: StateType, action: any) => {
+    switch (action.type) {
+        case 'TRACK-URL-CHANGED':
+            return {
+                ...state,
+                trackUrl: action.url
+            }
+        default:
+            return state
+    }
+}
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const muteTrackAC = () => ({type: 'TRACK-MUTED'})
+const changeTrackAC = (url: string) => ({type: 'TRACK-URL-CHANGED', url})
+const changeTrackPlayStatusAC = (status: Status) => ({type: 'TRACK-STATUS-CHANGED', status})
+
+//Какой тип должен быть вместо XXX?
