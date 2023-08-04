@@ -129,13 +129,6 @@ function AppWithRedux() {
     }
 
     function addTodolist(title: string) {
-        // let newTodolistId = v1();
-        // let newTodolist: TodolistType = {id: newTodolistId, title: title, filter: 'all'};
-        // setTodolists([newTodolist, ...todolists]);
-        // setTasks({
-        //     ...tasks,
-        //     [newTodolistId]: []
-        // })
         const action = addTodolistAC(title)
         dispatch(action)
     }
