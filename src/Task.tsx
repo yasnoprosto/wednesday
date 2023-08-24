@@ -13,7 +13,7 @@ type TaskWithReduxPropsType = {
 };
 
 
-export const TasksWithRedux = memo((props: TaskWithReduxPropsType) => {
+export const Task = memo((props: TaskWithReduxPropsType) => {
     console.log("Tasks")
 
     const {task, todolistId} = props

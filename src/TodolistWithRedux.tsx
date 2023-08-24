@@ -9,7 +9,7 @@ import {AppRootStateType} from "./state/store";
 import {TodolistType} from "./AppWithRedux";
 import {addTaskAC} from "./state/tasks-reducer";
 import {changeTodolistFilterAC, changeTodolistTitleAC, removeTodolistAC} from "./state/todolists-reducer";
-import {TasksWithRedux} from "./TasksWithRedux";
+import {Task} from "./Task";
 
 
 export type TaskType = {
@@ -62,7 +62,7 @@ export const TodolistWithRedux = memo((props: PropsType) => {
         }
         return tasks.map((t, i) => {
             return (
-                <TasksWithRedux key={t.id} task={t} todolistId={id}/>
+                <Task key={t.id} task={t} todolistId={id}/>
             )
         })
     }, [tasks, id, filter])
